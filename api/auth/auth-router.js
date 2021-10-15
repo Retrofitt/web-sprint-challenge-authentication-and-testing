@@ -25,20 +25,6 @@ router.post('/login', validateRequest, validateUsername,  (req, res, next) => {
   }else{
     next({status: 401, message: "invalid credentials"})
   }
-  
-  
-  /*
-
-    2- On SUCCESSFUL login,
-      the response body should have `message` and `token`:
-      {
-        "message": "welcome, Captain Marvel",
-        "token": "eyJhbGciOiJIUzI ... ETC ... vUPjZYDSa46Nwz8"
-      }
-
-    4- On FAILED login due to `username` not existing in the db, or `password` being incorrect,
-      the response body should include a string exactly as follows: "invalid credentials".
-  */
 });
 
 function tokenCreate(user){
